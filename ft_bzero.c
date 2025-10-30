@@ -1,7 +1,7 @@
 #include "libft.h"
 #include <stdio.h>
 
-void bzero(void *s, size_t n)
+void ft_bzero(void *s, size_t n)
 {
     char    *c = s;
     size_t i;
@@ -25,7 +25,7 @@ int main (void)
     mystr = "Hello";
     dup = ft_strdup(mystr);
     nb = ft_strlen(mystr);
-    bzero(dup, nb);
+    ft_bzero(dup, nb);
     printf("%s\n", dup);
 }
 */
