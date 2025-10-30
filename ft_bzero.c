@@ -1,6 +1,5 @@
 #include "libft.h"
 #include <stdio.h>
-#include <stdlib.h>
 
 void bzero(void *s, size_t n)
 {
@@ -15,6 +14,8 @@ void bzero(void *s, size_t n)
     }
 }
 
+/*
+#include <stdlib.h>
 int main (void)
 {
     char    *mystr;
@@ -27,3 +28,5 @@ int main (void)
     bzero(dup, nb);
     printf("%s\n", dup);
 }
+*/
+
