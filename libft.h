@@ -22,4 +22,7 @@ int ft_strncmp(char *s1, char *s2, unsigned int n);
 char    *ft_strncpy(char *dest, char *src, unsigned int n);
 char    *ft_strdup(char *src);
 
+//memory
+void bzero(void *s, size_t n);
+
 #endif
