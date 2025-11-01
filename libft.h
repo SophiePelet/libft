@@ -1,3 +1,4 @@
+#include <stddef.h>
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -21,8 +22,9 @@ char    *ft_strncat(char *dest, char *src, unsigned int n);
 int ft_strncmp(char *s1, char *s2, unsigned int n);
 char    *ft_strncpy(char *dest, char *src, unsigned int n);
 char    *ft_strdup(char *src);
+char    *ft_strjoin(char const *s1, char const *s2);
 
 //memory
-void bzero(void *s, size_t n);
+void ft_bzero(void *s, size_t n);
 
 #endif
