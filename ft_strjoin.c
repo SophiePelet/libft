@@ -1,7 +1,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static int ft_strlens(char const  *str)
+static size_t ft_strlens(char const  *str)
 {
     int i;
 

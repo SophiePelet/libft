@@ -1,6 +1,6 @@
 #include "libft.h"
 
-char    *ft_strncat(char *dest, char *src, unsigned int n)
+char    *ft_strncat(char *dest, const char *src, size_t n)
 {
     unsigned int i;
     int destlen;

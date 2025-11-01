@@ -1,6 +1,6 @@
 #include "libft.h"
 
-char    *ft_strcpy(char *dest, char *src)
+char    *ft_strcpy(char *dest, char const *src)
 {
     int i;
     int srclen;
@@ -24,7 +24,7 @@ char    *ft_strcpy(char *dest, char *src)
 int main(void)
 {
     char    dest[50];
-    char    *src;
+    const char    *src;
 
     src = "It works";
     printf("Expected : %s\n", strcpy(dest, src));

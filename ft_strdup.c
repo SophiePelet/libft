@@ -1,7 +1,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-char    *ft_strdup(char *src)
+char    *ft_strdup(char const *src)
 {
     char    *dup;
     int i;
@@ -27,7 +27,7 @@ char    *ft_strdup(char *src)
 #include <string.h>
 int main(void)
 {
-    char    *src;
+    const char    *src;
 
     src = "It works";
     printf("Expected : %s\n", strdup(src));

@@ -1,8 +1,9 @@
 #include "libft.h"
+#include <stdlib.h>
 
-char    *ft_strncpy(char *dest, char *src, unsigned int n)
+char    *ft_strncpy(char *dest, char *src, size_t n)
 {
-    unsigned int i;
+    size_t i;
     int srclen;
 
     i = 0;
@@ -27,9 +28,9 @@ char    *ft_strncpy(char *dest, char *src, unsigned int n)
 
 int main(void)
 {
-    unsigned int n;
+    size_t n;
     char    dest[50];
-    char    *src;
+    const char    *src;
 
     n = 2;
     src = "Hello world";
