@@ -11,18 +11,20 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
+#include <stdio.h>
 
-size_t	ft_strlen(char const *str)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	int	i;
+	char	*var;
 
-	i = 0;
-	while (str[i] != '\0')
+	var = s;
+	while (n > 0)
 	{
-		i++;
+		*var = c;
+		var++;
+		n--;
 	}
-	return (i);
+	return (s);
 }
 
 /*
@@ -30,9 +32,11 @@ size_t	ft_strlen(char const *str)
 
 int	main(void)
 {
-	const char	*mystr;
+	char	str[50] = "GeeksForGeeks is for programming geeks.";
 
-	mystr = "Hello World";
-	printf("%d\n", ft_strlen(mystr));
+	printf("Before ft_memset(): %s\n", str);
+	ft_memset(str + 13, '.', 8*sizeof(char));
+	printf("After ft_memset():  %s\n", str);
+	return (0);
 }
 */

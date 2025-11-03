@@ -1,20 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sopelet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/03 18:21:51 by sopelet           #+#    #+#             */
+/*   Updated: 2025/11/03 18:21:58 by sopelet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int ft_isalnum(int c)
+int	ft_isalnum(int c)
 {
-    if (ft_isalpha(c) == 1 || ft_isdigit(c) == 1)
-        return 1;
-    return 0;
+	if (ft_isalpha(c) == 1 || ft_isdigit(c) == 1)
+		return (1);
+	return (0);
 }
 
 /*
 #include <stdio.h>
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-    if (ac != 2)
-        return 0;
-    
-    printf("%d\n", ft_isalnum(av[1][0]));
+	if (ac != 2)
+		return (0);
+	printf("%d\n", ft_isalnum(av[1][0]));
 }
 */

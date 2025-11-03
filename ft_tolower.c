@@ -1,22 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sopelet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/03 18:21:51 by sopelet           #+#    #+#             */
+/*   Updated: 2025/11/03 18:21:58 by sopelet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-    if (c >= 65 && c <= 90)
-    {
-        c = c + 32;
-    }
-    return c;
+	if (c >= 65 && c <= 90)
+	{
+		c = c + 32;
+	}
+	return (c);
 }
 
 /*
 #include <stdio.h>
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-    if (ac != 2)
-        return 0;
-    
-    printf("%c\n", ft_tolower(av[1][0]));
+	if (ac != 2)
+		return (0);
+	printf("%c\n", ft_tolower(av[1][0]));
 }
 */

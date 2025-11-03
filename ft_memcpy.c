@@ -11,28 +11,22 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-
-size_t	ft_strlen(char const *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-
-/*
 #include <stdio.h>
 
-int	main(void)
+void	*memcpy(void *dest, const void *src, size_t n)
 {
-	const char	*mystr;
+	char *source;
+	char *dst;
+    int i;
 
-	mystr = "Hello World";
-	printf("%d\n", ft_strlen(mystr));
+	source = src;
+	dst = dest;
+    i = 0;
+	while (n > 0 && source[i] != '\0')
+	{
+		dst[i] = source[i];
+        n--;
+        i++;
+	}
+    return (dst);
 }
-*/

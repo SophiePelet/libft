@@ -1,20 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sopelet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/03 18:21:51 by sopelet           #+#    #+#             */
+/*   Updated: 2025/11/03 18:21:58 by sopelet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-    if (c >= '0' && c <= '9')
-        return 1;
-    return 0;
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
 
 /*
 #include <stdio.h>
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-    if (ac != 2)
-        return 0;
-    
-    printf("%d\n", ft_isdigit(av[1][0]));
+	if (ac != 2)
+		return (0);
+	printf("%d\n", ft_isdigit(av[1][0]));
 }
 */

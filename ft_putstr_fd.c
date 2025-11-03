@@ -1,32 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sopelet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/03 18:21:51 by sopelet           #+#    #+#             */
+/*   Updated: 2025/11/03 18:21:58 by sopelet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include <unistd.h>
 
-static int ft_strlens(const char *str)
+static int	ft_strlens(const char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (str[i] != '\0')
-    {
-        i++;
-    }
-    return i;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
 
-void    ft_putstr_fd(const char *s, int fd)
+void	ft_putstr_fd(const char *s, int fd)
 {
-    size_t  s_len;
-    int i;
+	size_t	s_len;
+	int		i;
 
-    i = 0;
-    s_len = ft_strlens(s);
-    write(fd, &s[i], s_len);
+	i = 0;
+	s_len = ft_strlens(s);
+	write(fd, &s[i], s_len);
 }
 
 /*
-int main(void)
+int	main(void)
 {
-    ft_putstr_fd("This goes to standard output.\n", 1);
-    ft_putstr_fd("This is an error message.\n", 2);
+	ft_putstr_fd("This goes to standard output.\n", 1);
+	ft_putstr_fd("This is an error message.\n", 2);
 }
 */
