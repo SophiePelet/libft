@@ -13,20 +13,39 @@
 #include "libft.h"
 #include <stdio.h>
 
-void	*memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	char *source;
-	char *dst;
-    int i;
+	const char	*source;
+	char		*dst;
+	size_t		i;
 
 	source = src;
 	dst = dest;
-    i = 0;
-	while (n > 0 && source[i] != '\0')
+	i = 0;
+	while (i < n)
 	{
 		dst[i] = source[i];
-        n--;
-        i++;
+		i++;
 	}
-    return (dst);
+	return (dst);
 }
+
+/*
+int	main(void)
+{
+	const char	*src;
+	char		dest[ft_strlen(src)];
+	char		*final;
+	size_t		n;
+	int			abc[3];
+	int			def[3];
+
+	src = "Hello World";
+	n = 3;
+	final = ft_memcpy(dest, src, n);
+	printf("%s\n", final);
+
+    def[3] = {1, 2, 3};
+    memcpy(abc, def, sizeof(abc));
+}
+*/

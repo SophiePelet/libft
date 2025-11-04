@@ -16,7 +16,7 @@ void	ft_putnbr(int num)
 {
 	if (num < 0)
 	{
-		if (num = -2147483648)
+		if (num == -2147483648)
 		{
 			ft_putstr("-2147483648");
 			return ;

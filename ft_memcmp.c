@@ -11,46 +11,44 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	len_s1;
-	size_t	len_s2;
-	char	*new;
-	int		i;
-	int		j;
+	const char	*cmp1;
+	const char	*cmp2;
+	int			diff;
+	size_t		i;
 
+	cmp1 = s1;
+	cmp2 = s2;
+	diff = 0;
 	i = 0;
-	j = 0;
-	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen(s2);
-	new = malloc(sizeof(char) * (len_s1 + len_s2 + 1));
-	if (!new)
-		return (NULL);
-	while (s1[i] != '\0')
+	if (cmp1 == cmp2)
+		return (diff);
+	while (i < n)
 	{
-		new[i] = s1[i];
+		if (cmp1[i] != cmp2[i])
+			diff = (cmp1[i] - cmp2[i]);
 		i++;
 	}
-	while (s2[j] != '\0')
-	{
-		new[i + j] = s2[j];
-		j++;
-	}
-	new[i + j] = '\0';
-	return (new);
+	return (diff);
 }
 
 /*
-#include <stdio.h>
 int	main(void)
 {
-	const char	*s1;
-	const char	*s2;
+	const char	*str1;
+	const char	*str2;
+	int			a[] = {0, 6, 0, 0, 1};
+	int			b[] = {0, 0, 0, 0, 1};
 
-	s1 = "Hello";
-	s2 = "    World";
-	printf("%s\n", ft_strjoin(s1, s2));
+	str1 = "test";
+	str2 = "teot";
+	printf("Expected : %d\n", memcmp(str1, str2, ft_strlen(str1)));
+	printf("Got : %d\n", ft_memcmp(str1, str2, ft_strlen(str1)));
+	printf("Expected : %d\n", memcmp(a, b, sizeof(a)));
+	printf("Got : %d\n", ft_memcmp(a, b, sizeof(a)));
 }
 */
