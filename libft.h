@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #ifndef LIBFT_H
 # define LIBFT_H
+# include <stddef.h> //needed for size_t
 
 // strings
 int		ft_putchar(int c);
