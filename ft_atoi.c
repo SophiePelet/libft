@@ -44,7 +44,7 @@ static int	cnt_minus(const char *str)
 	return (cnt_mn);
 }
 
-int	ft_atoi(const char *arr)
+int	ft_atoi(const char *nptr)
 {
 	int	i;
 	int	res;
@@ -53,19 +53,19 @@ int	ft_atoi(const char *arr)
 	i = 0;
 	res = 0;
 	sign = 1;
-	if (cnt_plus(arr) > 1 || cnt_minus(arr) > 1)
+	if (cnt_plus(nptr) > 1 || cnt_minus(nptr) > 1)
 		return (0);
-	while (arr[i] == 32 || (arr[i] >= 9 && arr[i] <= 13))
+	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
 		i++;
-	while (arr[i] == '+' || arr[i] == '-')
+	while (nptr[i] == '+' || nptr[i] == '-')
 	{
 		i++;
 	}
-	if (cnt_minus(arr) == 1)
+	if (cnt_minus(nptr) == 1)
 		sign = -1;
-	while (arr[i] != '\0')
+	while (nptr[i] != '\0')
 	{
-		res = res * 10 + (arr[i] - '0');
+		res = res * 10 + (nptr[i] - '0');
 		i++;
 	}
 	return (res * sign);

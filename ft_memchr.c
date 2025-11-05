@@ -1,44 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sopelet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/05 14:52:12 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/05 14:52:13 by sopelet          ###   ########.fr       */
+/*   Created: 2025/11/05 14:49:20 by sopelet           #+#    #+#             */
+/*   Updated: 2025/11/05 14:49:21 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
+#include <stdio.h>
 
-static int	ft_strlens(const char *str)
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
+	char			*mem;
+	unsigned char	chr;
+	size_t			i;
 
+	mem = (char *)s;
+	chr = c;
 	i = 0;
-	while (str[i] != '\0')
+	while (i < n)
 	{
+		if (mem[i] == chr)
+			return (&mem[i]);
 		i++;
 	}
-	return (i);
+	return (NULL);
 }
-
-void	ft_putstr_fd(const char *s, int fd)
-{
-	size_t	s_len;
-	int		i;
-
-	i = 0;
-	s_len = ft_strlens(s);
-	write(fd, &s[i], s_len);
-}
-
 /*
+#include <string.h>
 int	main(void)
 {
-	ft_putstr_fd("This goes to standard output.\n", 1);
-	ft_putstr_fd("This is an error message.\n", 2);
+	const char *mystr;
+	int chr;
+	size_t bytes;
+
+	mystr = "hello world";
+	chr = 'o';
+	bytes = 7;
+	printf("%p\n", memchr(mystr, chr, bytes));
+	printf("%p\n", ft_memchr(mystr, chr, bytes));
 }
 */

@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sopelet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 18:21:51 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/03 18:21:58 by sopelet          ###   ########.fr       */
+/*   Updated: 2025/11/05 14:52:52 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -34,6 +33,7 @@ char	*ft_strchr(const char *s, int c)
 }
 
 /*
+#include <string.h>
 int	main(void)
 {
 	const char  *str;
@@ -41,7 +41,7 @@ int	main(void)
 
 	str = "how are you?";
 	chr = 'y';
-	printf("%p\n", strchr(str, chr));
-	printf("%p\n", ft_strchr(str, chr));
+	printf("%s\n", strchr(str, chr));
+	printf("%s\n", ft_strchr(str, chr));
 }
 */
