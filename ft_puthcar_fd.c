@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*   ft_puthcar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sopelet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/05 14:51:17 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/05 14:51:29 by sopelet          ###   ########.fr       */
+/*   Created: 2025/11/07 15:40:24 by sopelet           #+#    #+#             */
+/*   Updated: 2025/11/07 15:43:18 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-static void	ft_putstr2(const char *str)
+void	ft_putchar_fd(char c, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
+	write(fd, &c, 1);
 }
 
-void	ft_putendl(char const *s)
+int main(void)
 {
-	ft_putstr2(s);
-	ft_putchar('\n');
-}
+    char    c;
+    int     fd;
 
-/*
-int	main(void)
-{
-	const char	*str;
-
-	str = "Hola :3";
-	ft_putendl(str);
+    c = 'e';
+    fd = 2;
+    ft_putchar_fd(c, fd);
 }
-*/
