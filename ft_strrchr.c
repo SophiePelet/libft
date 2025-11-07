@@ -1,47 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/05 14:49:20 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/06 11:36:05 by sopelet          ###   ########.fr       */
+/*   Created: 2025/11/06 11:02:17 by sopelet           #+#    #+#             */
+/*   Updated: 2025/11/06 11:08:10 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char    *ft_strrchr(const char *s, int c)
 {
-	char			*mem;
-	unsigned char	chr;
-	size_t			i;
+    int len;
+    char    *p;
 
-	mem = (char *)s;
-	chr = c;
-	i = 0;
-	while (i < n)
-	{
-		if (mem[i] == chr)
-			return (&mem[i]);
-		i++;
-	}
-	return (NULL);
+    len = ft_strlen(s);
+    p = (char *)s;
+    while (p[len] != c)
+    {
+        if (len == 0)
+            return (NULL);
+        len--;
+    }
+    return (&p[len]);
 }
-/*
-#include <string.h>
-int	main(void)
-{
-	const char *mystr;
-	int chr;
-	size_t bytes;
 
-	mystr = "hello world";
-	chr = 'o';
-	bytes = 7;
-	printf("%p\n", memchr(mystr, chr, bytes));
-	printf("%p\n", ft_memchr(mystr, chr, bytes));
+/*
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    const char  *str;
+    int chr;
+    
+    str = "Bonjour";
+    chr = '\0';
+    printf("%p\n", strrchr(str, chr));
+    printf("%p\n", ft_strrchr(str, chr));
 }
 */

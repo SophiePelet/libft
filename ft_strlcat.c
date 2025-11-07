@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 12:13:43 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/07 13:15:30 by sopelet          ###   ########.fr       */
+/*   Created: 2025/11/07 12:18:39 by sopelet           #+#    #+#             */
+/*   Updated: 2025/11/07 13:23:54 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t siz)
+size_t	ft_strlcat(char *dst, const char *src, size_t siz)
 {
 	size_t	i;
-	size_t	src_len;
+	size_t	dst_len;
 
 	i = 0;
-	src_len = ft_strlen(src);
+	dst_len = ft_strlen(dst);
 	if (siz == 0)
-		return (src_len);
+		return (dst_len);
 	while (src[i] != '\0' && i < (siz - 1))
 	{
-		dst[i] = src[i];
+		dst[i + dst_len] = src[i];
 		i++;
 	}
-	dst[i] = '\0';
-	return (src_len);
+	dst[i + dst_len] = '\0';
+	return (dst_len);
 }
 
 /*
-int	main(void)
+int	main(int ac, char **av)
 {
-	const char *source = "bonjour";	
-	size_t 		len;
-	char		desti[2];
+	size_t len;
 
-	len = 2;
-	printf("%zu\n", ft_strlcpy(desti, source, len));
-	printf("%s\n", desti);
+	if (ac != 3)
+		return (0);
+	len = 3;
+	printf("%zu\n", ft_strlcat(av[1], av[2], len));
+	printf("%s\n", av[1]);
 }
 */

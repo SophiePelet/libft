@@ -17,11 +17,9 @@
 char	*ft_strchr(const char *s, int c)
 {
 	int		i;
-	char	*p;
 	char	*new;
 
 	i = 0;
-	p = NULL;
 	new = (char *)s;
 	while (new[i] != c)
 	{
