@@ -1,29 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthcar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 15:40:24 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/07 15:43:18 by sopelet          ###   ########.fr       */
+/*   Created: 2025/11/07 17:37:31 by sopelet           #+#    #+#             */
+/*   Updated: 2025/11/07 18:06:30 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-void	ft_putchar_fd(char c, int fd)
+static int  trim(const char *set, char *c)
 {
-	write(fd, &c, 1);
+    int i;
+    int cnt;
+
+    i = 0;
+    cnt = 0;
+    
 }
 
 int main(void)
 {
-    char    c;
-    int     fd;
-
-    c = 'e';
-    fd = 2;
-    ft_putchar_fd(c, fd);
+    char *set = "ab";
+    char *str = "aaaabbbaabaHelloababababbba";
+    
 }
+
+/*
+char    *ft_strtrim(char const *s1, char const *set)
+{
+    const char  *trimmed;
+    int         i;
+
+    i = 0;
+}
+*/

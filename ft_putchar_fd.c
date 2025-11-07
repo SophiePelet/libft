@@ -1,46 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_puthcar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/05 14:51:42 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/07 17:05:47 by sopelet          ###   ########.fr       */
+/*   Created: 2025/11/07 15:40:24 by sopelet           #+#    #+#             */
+/*   Updated: 2025/11/07 15:47:41 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-void	ft_putnbr_fd(int num, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
-	int	last_digit;
-
-	if (num < 0)
-	{
-		if (num == -2147483648)
-		{
-			write(fd, "-2147483648", 11);
-			return ;
-		}
-		num = -num;
-	}
-	if (num > 10)
-	{
-		ft_putnbr_fd(num / 10, fd);
-	}
-	last_digit = num % 10 + '0';
-	write(fd, &last_digit, 1);
+	write(fd, &c, 1);
 }
 
 /*
-#include <stdlib.h>
-
-int	main(int ac, char **av)
+int main(void)
 {
-	if (ac != 3)
-		return (0);
-	ft_putnbr_fd(atoi(av[1]), atoi(av[2]));
+    char    c;
+    int     fd;
+
+    c = 'e';
+    fd = 2;
+    ft_putchar_fd(c, fd);
 }
 */

@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:55:32 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/07 15:43:33 by sopelet          ###   ########.fr       */
+/*   Updated: 2025/11/07 17:29:48 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,12 @@ int		ft_atoi(const char *nptr);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strdup(const char *src);
 char	*ft_strjoin(const char *s1, const char *s2);
-void	ft_putendl_fd(const char *s, int fd);
+
 char	*ft_strchr(const char *s, int c);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *s, int c);
 size_t	ft_strlcat(char *dst, const char *src, size_t siz);
 size_t	ft_strlcpy(char *dst, const char *src, size_t siz);
-void	ft_putchar_fd(char c, int fd);
 
 // mem
 void	ft_bzero(void *s, size_t n);
@@ -47,5 +46,10 @@ void	*ft_calloc(size_t nmemb, size_t size);
 
 // fd
 void	ft_putstr_fd(char const *s, int fd);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putendl_fd(const char *s, int fd);
+
+// additional functions
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
