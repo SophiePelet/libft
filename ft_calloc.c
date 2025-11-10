@@ -6,12 +6,13 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 13:30:41 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/07 16:04:21 by sopelet          ###   ########.fr       */
+/*   Updated: 2025/11/10 11:26:56 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
@@ -31,9 +32,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 }
 
 /*
-#include <stdio.h>
-#include <stdlib.h>
-
 int	main(void)
 {
 	size_t	elem;

@@ -6,37 +6,67 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 17:37:31 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/07 18:06:30 by sopelet          ###   ########.fr       */
+/*   Updated: 2025/11/10 15:28:40 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 #include <stdio.h>
 
-static int  trim(const char *set, char *c)
+static int	is_in_set(const char *set, char c)
 {
-    int i;
-    int cnt;
+	int	i;
 
-    i = 0;
-    cnt = 0;
-    
+	i = 0;
+	while (set[i] != '\0')
+	{
+		if (c == set[i])
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
-int main(void)
+static char	*new_str(const char *former, size_t start, size_t len)
 {
-    char *set = "ab";
-    char *str = "aaaabbbaabaHelloababababbba";
-    
+	char	*new;
+	size_t	i;
+
+	i = 0;
+	if (len <= 0 || start >= ft_strlen(former))
+		return (NULL); // or an empty string with ft_strdup?
+	new = ft_calloc(sizeof(char), len + 1);
+	if (!new)
+		return (NULL);
+	while (i < len)
+	{
+		new[i] = former[start + i];
+		i++;
+	}
+	return (new);
 }
 
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = ft_strlen(s1) - 1;
+	while (is_in_set(set, s1[i]))
+		i++;
+	while (is_in_set(set, s1[j]))
+		j--;
+	return (new_str(s1, i, ((j - (i - 1)))));
+}
 /*
-char    *ft_strtrim(char const *s1, char const *set)
+int	main(void)
 {
-    const char  *trimmed;
-    int         i;
+	char    *to_trim;
+	char    *set;
 
-    i = 0;
+	to_trim = "aaaaabbbbaaaacccbbbHelloWorldaaaaccccaabbbaac";
+	set = "abc";
+	printf("%s\n", ft_strtrim(to_trim, set));
 }
 */
