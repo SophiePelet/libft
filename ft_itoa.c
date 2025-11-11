@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:50:12 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/10 14:01:52 by sopelet          ###   ########.fr       */
+/*   Updated: 2025/11/11 15:12:32 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,21 @@
 
 static size_t	int_len(int num)
 {
-	size_t	i;
+	size_t		i;
+	long long	nbr;
 
 	i = 0;
-	if (num == 0)
+	nbr = (long long)num;
+	if (nbr == 0)
 		i++;
-	if (num < 0)
+	if (nbr < 0)
 	{
 		i += 1;
-		num = -num;
+		nbr = -nbr;
 	}
-	while (num != 0)
+	while (nbr != 0)
 	{
-		num = num / 10;
+		nbr = nbr / 10;
 		i++;
 	}
 	return (i);
@@ -35,14 +37,13 @@ static size_t	int_len(int num)
 
 char	*ft_itoa(int n)
 {
-	int		i;
-	char	*array;
-	int		nbr;
-	size_t	len;
+	int				i;
+	char			*array;
+	long long		nbr;
+	size_t			len;
 
-	i = 0;
 	len = int_len(n);
-	nbr = n;
+	nbr = (long long)n;
 	array = ft_calloc((len + 1), sizeof(char));
 	if (!array)
 		return (NULL);
@@ -69,7 +70,7 @@ int	main(void)
 {
 	int n;
 
-	n = -5456452;
+	n = -2147483648;
 	printf("%s\n", ft_itoa(n));
 }
 */

@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:51:42 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/07 17:05:47 by sopelet          ###   ########.fr       */
+/*   Updated: 2025/11/11 15:33:39 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	ft_putnbr_fd(int num, int fd)
 {
-	int	last_digit;
+	char	last_digit;
 
 	if (num < 0)
 	{
@@ -24,14 +24,15 @@ void	ft_putnbr_fd(int num, int fd)
 			write(fd, "-2147483648", 11);
 			return ;
 		}
+		write(fd, "-", 1);
 		num = -num;
 	}
-	if (num > 10)
+	if (num >= 10)
 	{
 		ft_putnbr_fd(num / 10, fd);
 	}
 	last_digit = num % 10 + '0';
-	write(fd, &last_digit, 1);
+	ft_putchar_fd(last_digit, fd);
 }
 
 /*

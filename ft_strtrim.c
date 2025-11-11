@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 17:37:31 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/10 15:28:40 by sopelet          ###   ########.fr       */
+/*   Updated: 2025/11/11 15:13:33 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static char	*new_str(const char *former, size_t start, size_t len)
 
 	i = 0;
 	if (len <= 0 || start >= ft_strlen(former))
-		return (NULL); // or an empty string with ft_strdup?
+		return (ft_strdup(""));
 	new = ft_calloc(sizeof(char), len + 1);
 	if (!new)
 		return (NULL);

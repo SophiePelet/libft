@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 14:08:05 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/10 15:06:52 by sopelet          ###   ########.fr       */
+/*   Updated: 2025/11/11 15:40:26 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*new;
-	int		len;
-	int		i;
+	char			*new;
+	size_t			len;
+	unsigned int	i;
 
 	len = ft_strlen(s);
 	i = 0;
-	new = ft_calloc(len, sizeof(char));
+	new = ft_calloc(len + 1, sizeof(char));
 	if (!new)
 		return (NULL);
 	while (s[i] != '\0')
@@ -32,12 +32,12 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	return (new);
 }
 
-/*
 char    map_char_by_index(unsigned int i, char c)
 {
     return(c + (char)i);
 }
 
+/*
 int main(void)
 {
     char    *str;

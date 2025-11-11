@@ -6,40 +6,41 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 13:30:41 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/10 11:26:56 by sopelet          ###   ########.fr       */
+/*   Updated: 2025/11/11 14:41:49 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	unsigned char		*ptr;
+	size_t				total;
 	unsigned long long	max;
 
 	max = 18446744073709551615ULL;
-	if (nmemb == 0 || size == 0)
+	if ((nmemb > 0 && size > 0 && max / nmemb < size))
 		return (NULL);
-	ptr = malloc(size * nmemb);
+	total = nmemb * size;
+	ptr = malloc(total);
 	if (ptr == NULL)
 		return (NULL);
-	if ((nmemb * size) > max)
-		return (NULL);
-	ft_memset(ptr, '\0', (nmemb * size));
+	ft_memset(ptr, 0, total);
 	return (ptr);
 }
 
 /*
+#include <stdio.h>
+
 int	main(void)
 {
-	size_t	elem;
-	size_t	siz;
-	char	*mem;
+	size_t elem;
+	size_t siz;
+	char *mem;
 
-	elem = 565132456456;
-	siz = 455478744545;
+	elem = 44515415154;
+	siz = 0;
 	mem = ft_calloc(elem, siz);
 	mem = calloc(elem, siz);
 	printf("%p\n", mem);

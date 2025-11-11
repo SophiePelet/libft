@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sopelet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:54:59 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/05 14:55:00 by sopelet          ###   ########.fr       */
+/*   Updated: 2025/11/11 12:43:14 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <bsd/string.h>
 #include <stdio.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
@@ -23,16 +22,13 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	j = 0;
 	if (little[j] == '\0')
 		return ((char *)big);
-	while (i < (len - 1) && big[i] != '\0')
+	while (i < len && big[i] != '\0')
 	{
 		j = 0;
 		if (big[i] == little[j])
 		{
-			while ((i + j) < len && big[i + j] == little[j]
-				&& little[j] != '\0')
-			{
+			while ((i + j) < len && big[i + j] == little[j])
 				j++;
-			}
 			if (little[j] == '\0')
 				return ((char *)&big[i]);
 		}
@@ -42,14 +38,18 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 }
 
 /*
-int	main(int ac, char **av)
-{
-	size_t len;
+#include <bsd/string.h>
 
-	len = 7;
-	if (ac != 3)
-		return (0);
-	printf("%s\n", strnstr(av[1], av[2], len));
-	printf("%s\n", ft_strnstr(av[1], av[2], len));
+int	main(void)
+{
+	char	*haystack;
+	char	*needle;
+	size_t	len;
+	
+	haystack = "ABCDE";
+	needle = "E";
+	len  = 5;
+	printf("%s\n", strnstr(haystack, needle, len));
+	printf("%s\n", ft_strnstr(haystack, needle, len));
 }
 */
