@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 14:08:05 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/11 15:40:26 by sopelet          ###   ########.fr       */
+/*   Updated: 2025/11/12 14:39:33 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	return (new);
 }
 
+/*
 char    map_char_by_index(unsigned int i, char c)
 {
     return(c + (char)i);
 }
 
-/*
 int main(void)
 {
     char    *str;

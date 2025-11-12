@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:20:07 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/11 10:39:35 by sopelet          ###   ########.fr       */
+/*   Updated: 2025/11/12 17:46:04 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,16 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	char	*desti;
 	char	*source;
-	size_t	i;
 
-	i = 0;
+	if (n == 0 || dest == src)
+		return (dest);
 	desti = (char *)dest;
 	source = (char *)src;
-	if (desti <= source)
+	if (desti < source)
 	{
-		while (i < n)
+		while (n--)
 		{
-			desti[i] = source[i];
-			i++;
+			*desti++ = *source++;
 		}
 	}
 	else if (desti > source)
@@ -38,10 +37,12 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 			n--;
 		}
 	}
-	return (desti);
+	return (dest);
 }
+
 /*
 #include <string.h>
+
 int	main(void)
 {
 	size_t		size;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sopelet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:49:47 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/05 14:49:51 by sopelet          ###   ########.fr       */
+/*   Updated: 2025/11/12 17:25:10 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	source = src;
 	dst = dest;
 	i = 0;
+	if (n == 0 || dest == src)
+		return (dst);
 	while (i < n)
 	{
 		dst[i] = source[i];
@@ -38,14 +40,12 @@ int	main(void)
 	char		*final;
 	size_t		n;
 	int			abc[3];
-	int			def[3];
+	int			def[3] = {1, 2, 3};
 
-	src = "Hello World";
+	src = NULL;
 	n = 3;
 	final = ft_memcpy(dest, src, n);
 	printf("%s\n", final);
-
-    def[3] = {1, 2, 3};
-    memcpy(abc, def, sizeof(abc));
+	ft_memcpy(abc, def, sizeof(abc));
 }
 */

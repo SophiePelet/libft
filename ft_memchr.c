@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:49:20 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/07 16:04:09 by sopelet          ###   ########.fr       */
+/*   Updated: 2025/11/12 18:35:59 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char			*mem;
+	unsigned char	*mem;
 	unsigned char	chr;
 	size_t			i;
 
-	mem = (char *)s;
+	mem = (unsigned char *)s;
 	chr = c;
 	i = 0;
 	while (i < n)
@@ -30,6 +30,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
+
 /*
 #include <string.h>
 int	main(void)
