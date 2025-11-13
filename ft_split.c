@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 16:42:43 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/12 19:28:58 by sopelet          ###   ########.fr       */
+/*   Updated: 2025/11/13 14:34:52 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,7 @@ static int	cnt_words(const char *str, char sep)
 	return (cnt);
 }
 
-static char	**main_str(const char *str, char c)
-{
-	char	**main;
-
-	main = malloc(sizeof(char *) * (cnt_words(str, c) + 1));
-	if (!main)
-		return (NULL);
-	return (main);
-}
-
-static void	*free_all(const char **strs, int count)
+static void	*free_contents(const char **strs, int count)
 {
 	int	i;
 
@@ -54,43 +44,17 @@ static void	*free_all(const char **strs, int count)
 		free((char *)strs[i]);
 		i++;
 	}
-	free(strs);
 	return (NULL);
 }
 
-static char	*fill_words(const char *str, int start, int len)
+static char	**aled(char **split, const char *s, char c)
 {
-	char	*words;
-	size_t	size;
-	int		i;
-
-	size = (size_t)len;
-	i = 0;
-	words = ft_calloc((size + 1), sizeof(char));
-	if (!words)
-		return (NULL);
-	while (i < len)
-	{
-		words[i] = str[start + i];
-		i++;
-	}
-	return (words);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**new;
-	int		i;
-	int		j;
-	int		word_start;
+	int	i;
+	int	j;
+	int	word_start;
 
 	i = 0;
 	j = 0;
-	if (!s)
-		return (NULL);
-	new = main_str(s, c);
-	if (!new)
-		return (NULL);
 	while (s[i] != '\0')
 	{
 		while (s[i] == c && s[i] != '\0')
@@ -100,13 +64,32 @@ char	**ft_split(char const *s, char c)
 			i++;
 		if (i > word_start)
 		{
-			new[j] = fill_words(s, word_start, (i - word_start));
-			if (!new[j])
-				return (free_all((const char **)new, j));
+			split[j] = ft_substr(s, word_start, (i - word_start));
+			if (!split[j])
+				return (free_contents((const char **)split, j));
 			j++;
 		}
 	}
-	new[j] = NULL;
+	split[j] = NULL;
+	return (split);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**new;
+	char	**tmp;
+
+	if (!s)
+		return (NULL);
+	new = malloc(sizeof(char *) * (cnt_words(s, c) + 1));
+	if (!new)
+		return (NULL);
+	tmp = aled(new, s, c);
+	if (tmp == NULL)
+	{
+		free(new);
+		return (NULL);
+	}
 	return (new);
 }
 
@@ -115,21 +98,21 @@ char	**ft_split(char const *s, char c)
 
 int	main(void)
 {
-	char	*str;
-	char		sep;
-	char		**split_str;
-	int			i;
+	char *str;
+	char sep;
+	char **split_str;
+	int i;
 
 	i = 0;
-	str = "hello!zzzzzzzz";
+	str = "helloz  hizzzz,   opz   ";
 	sep = 'z';
 	split_str = ft_split(str, sep);
 	while (split_str[i] != NULL)
 	{
-		printf("%s", split_str[i]);
+		printf("%s\n", split_str[i]);
 		i++;
 	}
-	free_all((const char **)split_str, i);
+	free(split_str);
 	return (0);
 }
 */
