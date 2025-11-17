@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/14 16:15:08 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/14 16:34:06 by sopelet          ###   ########.fr       */
+/*   Created: 2025/11/17 17:07:29 by sopelet           #+#    #+#             */
+/*   Updated: 2025/11/17 18:15:25 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*new_node;
+	t_list	*tmp;
 
-	new_node = malloc(sizeof(t_list));
-	if (!new_node)
-		return (NULL);
-	new_node->content = content;
-	new_node->next = NULL;
-	return (new_node);
-}
-
-#include <stdio.h>
-
-int	main(void)
-{
-	int value;
-	t_list *new_list;
-
-	value = 12;
-	new_list = ft_lstnew(&value);
-	printf("%p\n", new_list->content);
-	printf("%d\n", *(int *)new_list->content);
+	if ((*lst) == NULL || del == NULL)
+		return ;
+	while ((*lst) != NULL)
+	{
+		tmp = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = tmp;
+	}
+	free(*lst);
 }

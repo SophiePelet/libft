@@ -44,6 +44,18 @@ SRC_FILES		=	ft_atoi.c \
 
 OBJ_FILES		=	$(SRC_FILES:.c=.o)
 
+BON_SRC			=	ft_lstadd_back_bonus.c \
+					ft_lstadd_front_bonus.c \
+					ft_lstnew_bonus.c \
+					ft_lstsize_bonus.c \
+					ft_lstlast_bonus.c \
+					ft_lstdelone_bonus.c \
+					ft_lstclear_bonus.c \
+					ft_lstiter_bonus.c \
+					ft_lstmap_bonus.c \
+
+BON_OBJ			=	$(BON_SRC:.c=.o)
+
 LIBS			= libft.h
 ##########################################################
 #### RULES
@@ -52,16 +64,22 @@ all: ${NAME}
 ${NAME}: ${OBJ_FILES}
 			${AR} ${ARFLAGS} ${NAME} ${OBJ_FILES}
 
+bonus: ${NAME} ${BON_OBJ}
+			${AR} ${ARFLAGS} ${NAME} ${BON_OBJ}
+
 %.o: %.c
 		${CC} ${CFLAGS} -c $< -o $@
 
 clean:
 		rm -f *.o
+
 fclean: clean
-		rm -f ${NAME}
+		rm -f ${NAME} ${BON_OBJ}
 
 ${OBJ_FILES}: ${LIBS}
 
+${BON_OBJ}: ${LIBS}
+
 re:	fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
