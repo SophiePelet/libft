@@ -67,7 +67,7 @@ ${NAME}: ${OBJ_FILES}
 bonus: ${NAME} ${BON_OBJ}
 			${AR} ${ARFLAGS} ${NAME} ${BON_OBJ}
 
-%.o: %.c
+%.o: %.c ${LIBS} ##.o files are dependent of .c files and libft.h, if they are out of date, they are recompiled
 		${CC} ${CFLAGS} -c $< -o $@
 
 clean:
@@ -75,10 +75,6 @@ clean:
 
 fclean: clean
 		rm -f ${NAME} ${BON_OBJ}
-
-${OBJ_FILES}: ${LIBS}
-
-${BON_OBJ}: ${LIBS}
 
 re:	fclean all
 
