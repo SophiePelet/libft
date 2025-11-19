@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:55:32 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/17 18:35:24 by sopelet          ###   ########.fr       */
+/*   Updated: 2025/11/19 11:26:41 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ typedef struct s_list
 
 // strings
 size_t				ft_strlen(const char *str);
-void				ft_putnbr_fd(int num, int fd);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 int					ft_isalpha(int c);
@@ -34,7 +33,6 @@ int					ft_atoi(const char *nptr);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strdup(const char *src);
 char				*ft_strjoin(const char *s1, const char *s2);
-
 char				*ft_strchr(const char *s, int c);
 char				*ft_strnstr(const char *big, const char *little,
 						size_t len);
@@ -55,6 +53,7 @@ void				*ft_calloc(size_t nmemb, size_t size);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(const char *s, int fd);
+void				ft_putnbr_fd(int num, int fd);
 
 // additional functions
 char				*ft_substr(char const *s, unsigned int start, size_t len);
