@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:39:54 by sopelet           #+#    #+#             */
-/*   Updated: 2025/12/04 16:50:35 by sopelet          ###   ########.fr       */
+/*   Updated: 2025/12/05 14:56:51 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	*ft_strdup(char const *src, size_t index)
 
 	i = 0;
 	srclen = ft_strlen(src);
-	if (index > srclen)
+	if (srclen < index)
 		return (NULL);
 	duplen = srclen - index;
 	dup = malloc(sizeof(char) * (duplen + 1));

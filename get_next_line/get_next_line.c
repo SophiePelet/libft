@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:33:24 by sopelet           #+#    #+#             */
-/*   Updated: 2025/12/04 17:01:59 by sopelet          ###   ########.fr       */
+/*   Updated: 2025/12/05 15:39:08 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,27 +35,25 @@ static int	check_stash(char *str)
 static char	*fill_stash(int fd, char *stash)
 {
 	char	*buffer;
-	int		byte_read;
+	ssize_t	byte_read;
 	char	*tmp_stash;
 
 	buffer = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	if (!buffer)
 		return (NULL);
-	printf("calloced buffer : %s\n", buffer);
 	byte_read = 1;
 	while (byte_read > 0 && !check_stash(stash))
 	{
-		printf("stash content 1 : %s\n", stash);
-		printf("inside buffer 1 : %s\n", buffer);
 		byte_read = read(fd, buffer, BUFFER_SIZE);
-		printf("inside buffer 2 : %s\n", buffer);
-		printf("stash content 2 : %s\n", stash);
+		if (byte_read < 0)
+		{
+			free(buffer);
+			return (NULL);
+		}
 		buffer[byte_read] = '\0';
-		printf("inside buffer 3 : %s\n", buffer);
 		tmp_stash = ft_strjoin(stash, buffer);
-		printf("tmp stash content : %s\n", tmp_stash);
+		free(stash);
 		stash = tmp_stash;
-		printf("stash content 3 : %s\n", stash);
 	}
 	free(buffer);
 	return (stash);
@@ -71,6 +69,8 @@ static char	*fill_line(char *filled_stash)
 	i = 0;
 	if (filled_stash == NULL)
 		return (NULL);
+	if (filled_stash[0] == '\0')
+		return (NULL);
 	while (filled_stash[stash_len] != '\0' && filled_stash[stash_len] != '\n')
 		stash_len++;
 	if (filled_stash[stash_len] == '\n')
@@ -83,8 +83,7 @@ static char	*fill_line(char *filled_stash)
 		line[i] = filled_stash[i];
 		i++;
 	}
-	line[i + 1] = '\0';
-	printf("line content : %s\n", line);
+	line[i] = '\0';
 	return (line);
 }
 
@@ -111,34 +110,37 @@ char	*get_next_line(int fd)
 	static char	*stash;
 	char		*filled_stash;
 	char		*line;
+	char		*new_stash;
 
-	if (stash)
-	{
-		filled_stash = fill_stash(fd, stash);
-		line = fill_line(filled_stash);
-		stash = clean_stash(filled_stash);
-		free(filled_stash);
-		return (line);
-	}
-	stash = NULL;
 	filled_stash = fill_stash(fd, stash);
+	if (!filled_stash)
+	{
+		free(stash);
+		stash = NULL;
+		return (NULL);
+	}
 	line = fill_line(filled_stash);
-	stash = clean_stash(filled_stash);
+	new_stash = clean_stash(filled_stash);
+	stash = new_stash;
 	free(filled_stash);
 	return (line);
 }
 
-int	main(void)
+/* int	main(void)
 {
-	int		fd;
-	char	*next_line;
+	int fd;
+	char *line;
 
 	fd = open("test.txt", O_RDONLY);
 	if (fd < 0)
 		return (printf("nope"), 1);
-	printf("call : %s\n", next_line = get_next_line(fd));
-	printf("call : %s\n", next_line = get_next_line(fd));
-	printf("call : %s\n", next_line = get_next_line(fd));
-	printf("call : %s\n", next_line = get_next_line(fd));
-	free(next_line);
-}
+	line = get_next_line(fd);
+	while (line != NULL)
+	{
+		printf("call : %s", line);
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
+	return (0);
+} */
