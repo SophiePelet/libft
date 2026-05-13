@@ -14,12 +14,13 @@ OBJ_DIRS		= other mem put strings lists my_printf gnl
 SRC_FILES		=	other/ft_atoi.c \
 					other/ft_bzero.c \
 					other/ft_calloc.c \
+					other/ft_itoa.c \
+					other/ft_free_array.c \
 					strings/ft_isalnum.c \
 					strings/ft_isalpha.c \
 					strings/ft_isascii.c \
 					strings/ft_isdigit.c \
 					strings/ft_isprint.c \
-					other/ft_itoa.c \
 					mem/ft_memchr.c \
 					mem/ft_memcmp.c \
 					mem/ft_memcpy.c \

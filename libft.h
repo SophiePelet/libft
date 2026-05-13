@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:55:32 by sopelet           #+#    #+#             */
-/*   Updated: 2026/01/15 17:54:57 by sopelet          ###   ########.fr       */
+/*   Updated: 2026/05/13 18:11:54 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ char				*ft_itoa(int n);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 char				**ft_split(char const *s, char c);
+void				ft_free_array(char **array);
 
 // lists
 t_list				*ft_lstnew(void *content);
