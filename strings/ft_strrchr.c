@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 11:02:17 by sopelet           #+#    #+#             */
-/*   Updated: 2025/11/11 11:42:04 by sopelet          ###   ########.fr       */
+/*   Updated: 2026/05/20 17:27:01 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strrchr(const char *s, int c)
 	if (target == '\0')
 		return ((char *)&p[len]);
 	while (len > 0)
-	{	
+	{
 		len--;
 		if (p[len] == target)
 			return ((char *)&p[len]);
